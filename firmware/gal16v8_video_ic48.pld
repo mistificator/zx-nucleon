@@ -1,0 +1,61 @@
+Device	G16V8MS;
+Name	GAL16V8MS;
+Date	2023-03-11;
+
+Pin  1 = F25HZ;
+Pin  2 = PA7;
+Pin  3 = PA6;
+Pin  4 = Q8_REG;
+Pin  5 = PIN05;
+Pin  6 = PIN06;
+Pin  7 = PIN07;
+Pin  8 = PIN08;
+Pin  9 = SER_DATA;
+Pin 10 = GND;
+Pin 11 = PIN11;
+Pin 12 = !N_7;
+Pin 13 = DI_512K;
+Pin 14 = !N_6;
+Pin 15 = !N_1;
+Pin 16 = !N_9;
+Pin 17 = GPA6;
+Pin 18 = GPA7;
+Pin 19 = OUT_MUX;
+Pin 20 = VCC;
+
+/* Pin 19; AC1:1; XOR:0 */
+OUT_MUX =
+    N_1 & SER_DATA
+  # Q8_REG & !N_1 & !SER_DATA
+  # !Q8_REG & SER_DATA;
+
+/* Pin 18; AC1:1; XOR:1 */
+GPA7 =
+    PA7 & DI_512K;
+
+/* Pin 17; AC1:1; XOR:1 */
+GPA6 =
+    PA6 & DI_512K;
+
+/* Pin 16; AC1:0; XOR:0 */
+N_9.d =
+    N_9 & N_7
+  # N_9 & N_6
+  # !N_9 & !N_6 & !N_7;
+
+/* Pin 15; AC1:0; XOR:0 */
+N_1.d =
+    N_9 & N_1
+  # N_1 & N_7
+  # N_1 & N_6
+  # !N_9 & !N_1 & !N_6 & !N_7;
+
+/* Pin 14; AC1:0; XOR:0 */
+N_6.d =
+    !N_6;
+
+/* Pin 12; AC1:0; XOR:0 */
+N_7.d =
+    N_6 & N_7
+  # !N_6 & !N_7;
+
