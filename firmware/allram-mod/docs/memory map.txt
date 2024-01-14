@@ -1,0 +1,29 @@
+Crazy new memory map is enabled by Bit 5 of port 0xFE.
+
+--------------------------------------------------------
+
+Normal memory map 128k
+ROM0..ROM1
+RAM5
+RAM2
+RAM0..RAM7
+
+Crazy new memory map 128k
+RAM0
+RAM5
+RAM2
+RAM0..RAM7
+
+--------------------------------------------------------
+
+Normal memory map 512k
+ROM0..ROM1
+RAM5
+RAM2
+RAM0..RAM31
+
+Crazy new memory map 512k
+RAM0       | RAM8        | RAM16        | RAM24
+RAM5       | RAM13       | RAM21        | RAM29
+RAM2       | RAM10       | RAM18        | RAM26
+RAM0..RAM7 | RAM8..RAM15 | RAM16..RAM23 | RAM24..RAM31

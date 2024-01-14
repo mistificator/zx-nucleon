@@ -1,0 +1,1 @@
+You should modify ONLY PINK AREAS of ZX Nucleon scheme (I mean "ZX Nucleon - patched GAL.PDF" file, compare it with "ZX Nucleon - original.PDF"). Red areas were made just for running ZX Nucleon in Proteus IDE.

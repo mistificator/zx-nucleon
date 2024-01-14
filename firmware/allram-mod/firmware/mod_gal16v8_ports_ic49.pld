@@ -1,0 +1,49 @@
+Device	G16V8MA;
+Name	GAL16V8MA;
+Date	2023-03-11;
+
+Pin  1 = A0;
+Pin  2 = A1;
+Pin  3 = NRD;
+Pin  4 = NM1;
+Pin  5 = A5;
+Pin  6 = A15;
+Pin  7 = A7;
+Pin  8 = A14;
+Pin  9 = NIORQ;
+Pin 10 = GND;
+Pin 11 = DI_ULA;
+Pin 12 = OUT_254;
+Pin 13 = NWR;
+Pin 14 = A14_OR_A15;
+Pin 15 = DI_7FFD;
+Pin 16 = BC1;
+Pin 17 = !IN_254;
+Pin 18 = BDIR;
+Pin 19 = CLK_7FFD;
+Pin 20 = VCC;
+
+/* Pin 19; AC1:1; XOR:1 */
+CLK_7FFD =
+    !A1 & A0 & A5 & !A15 & !DI_7FFD & A7 & A14 & !NWR & !NIORQ;
+
+/* Pin 18; AC1:1; XOR:1 */
+BDIR =
+    !A1 & A5 & A15 & A7 & !NWR & !NIORQ;
+
+/* Pin 17; AC1:1; XOR:0 */
+IN_254 =
+    !A0 & !NRD & !NIORQ & !DI_ULA;
+
+/* Pin 16; AC1:1; XOR:1 */
+BC1 =
+    !A1 & NM1 & A5 & A15 & A7 & A14 & !NIORQ;
+	
+/* Pin 14; AC1:1; XOR:1 */
+A14_OR_A15 =
+	A14 # A15;
+
+/* Pin 12; AC1:1; XOR:1 */
+OUT_254 =
+    !A0 & !NWR & !NIORQ & !DI_ULA;
+
